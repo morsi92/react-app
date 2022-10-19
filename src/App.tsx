@@ -1,25 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
+import ExpressionList from "./components/ExpressionList";
+import AddExpression from "./components/AddExpression";
+import {useState} from "react";
 import './App.css';
 
-function App() {
+export function App() {
+  const [expressionList, setExpressionList] = useState([] as string[]);
+
+  const addExpressionHandler = (value : string) => {
+    setExpressionList((prevExpressionList: string[] ) => {
+      return [
+        ...prevExpressionList,
+        value,
+      ];
+    });
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <AddExpression onAddExpression={addExpressionHandler}></AddExpression>
+        <ExpressionList expressions={expressionList}></ExpressionList>
   );
 }
 
