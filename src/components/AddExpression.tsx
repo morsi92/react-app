@@ -29,7 +29,7 @@ const AddExpression : FunctionComponent<any> = (props) => {
           <TextField
             error={error}
             id="outlined-basic"
-            label='Enter expression that contains only "(", ")", "[", "]" characters.'
+            label='Enter expression containing only "(", ")", "[", "]", "{", and "}" characters.'
             variant="outlined"
             sx={{width: 3/4, m:2}}
 
